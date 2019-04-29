@@ -33,7 +33,7 @@
 (function ($) {
     'use strict';
     //table util create by zws
-    var tableUtilOptions = {prefix: 'z-'};
+    var tableUtilOptions = { prefix: 'z-' };
 
     // auto completed support
     var autoCompletedPlugin = {
@@ -87,10 +87,10 @@
         labels: {},
         rowHtml: '',
         rowIndex: 0,
-        options: {debug: true},
+        options: { debug: true },
         $table: {},
         plugins: [autoCompletedPlugin],
-        events: {onAddRow: null, onFillData: null, onAppendRow: null},
+        events: { onAddRow: null, onFillData: null, onAppendRow: null },
         // init tableUtil bind jQuery object $table
         init: function (onAddRow, pluginOptions) {
             tableUtil.$table = $(this);
@@ -393,7 +393,7 @@
             if (rowCount < 2) {
                 return;
             }
-            tableUtil.$table.find('[rowIndex="{0}"]'.format(rowIndex)).remove();
+            tableUtil.$table.find('[rowIndex="' + rowIndex + '"]').remove();
             var $tr = tableUtil.refreshRowIndex();
             tableUtil.appendBtn($tr, true, true);
         },
@@ -425,7 +425,7 @@
                 });
 
 
-                $.extend(obj, {rowIndex: rowIndex});
+                $.extend(obj, { rowIndex: rowIndex });
                 if (onRowCallback) {
                     onRowCallback(obj, $(item));
                 }
@@ -443,6 +443,6 @@
 
     };
 
-    $.fn.extend({tableUtil: tableUtil.init});
+    $.fn.extend({ tableUtil: tableUtil.init });
 
 }(window.jQuery));
