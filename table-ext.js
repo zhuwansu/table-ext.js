@@ -373,7 +373,13 @@
             $newRow.find('input,select,textarea').attr('name', function (n, v) {
                 return v + tableUtil.rowIndex;
             });
-            tableUtil.$table.append($newRow);
+            debugger;
+            var $tbody =tableUtil.$table.find('tbody');
+            if($tbody.length==0){
+                $tbody=$('<tbody></tbody>');
+                tableUtil.$table.append($tbody);
+            }
+            $tbody.append($newRow);
 
             //添加新行后增加新增和删除按钮
             tableUtil.appendBtn($newRow, true, true);
