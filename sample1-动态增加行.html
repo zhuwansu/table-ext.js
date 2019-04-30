@@ -35,6 +35,7 @@
             <button class="reset  ">重置</button>
             <button class="noAppend  ">不追加按钮</button>
             <button class="bootstrapTable ">bootstrap 样式</button>
+            <button class="sample2">sample2</button>
         </div>
     </div>
     <div style="display:none">
@@ -87,6 +88,8 @@
                     $(selector)[bootstrapOption]('table table-bordered')
                     $('#operations')[bootstrapOption]('btn-group').attr('role', isAdd ? 'group' : '');
                     $('#operations button')[bootstrapOption]('btn btn-default');
+                }).on('click','button.sample2',function(){
+                    window.location.href='sample2-动态添加列.html'
                 })
         })
     </script>
