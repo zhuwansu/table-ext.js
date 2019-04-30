@@ -29,6 +29,7 @@
             <button class="load3  ">加载列3</button>
             <button class="a-disabled  ">按钮禁用</button>
             <button class="bootstrap ">bootstrap 样式</button>
+            <button class="sample1 ">sample1</button>
         </div>
     </div>
     <script>
@@ -91,7 +92,7 @@
                     $(selector)[bootstrapOption]('table table-bordered')
                     $('#operations')[bootstrapOption]('btn-group').attr('role', isAdd ? 'group' : '');
                     $('#operations button')[bootstrapOption]('btn btn-default');
-                })
+                }).on('click','button.sample1',function(){window.location.href='sample1-动态增加行.html';})
         })
     </script>
     <style>
