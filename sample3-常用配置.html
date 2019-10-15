@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>sample2-动态增加列</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <!-- 仅依赖jquery ，上面引用了bootstrap 让它更好看-->
+    <!-- <script src="https://zhuwansu.github.io/table-ext.js/table-ext.js" type="text/javascript"></script> -->
+    <script src="table-ext.js"></script>
+</head>
+
+<body>
+    <div class="append">
+        <th>追加一对按钮到后面</th>
+        <table style="margin-top:10px;" id="table1" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>列1</th>
+                    <th>列2</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button> 新增一行 </button>
+    </div>
+    <script>
+        let util1 = new $("#table1").tableUtil();
+        util1.rowHtml = `<tr>
+                    <td><span name="c1"></span></td>
+                    <td><span name="c2"></span></td>
+                </tr>`;
+        $('.append > button').click(function (params) {
+            util1.addRow();
+        })
+    </script>
+    <div class="append-one">
+        <th>追加删除按钮到后面</th>
+        <p>隐藏新增按钮即可</p>
+        <table style="margin-top:10px;" id="table2" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>列1</th>
+                    <th>列2</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button> 新增一行 </button>
+    </div>
+    <script>
+        let util2 = $("#table2").tableUtil();
+        util2.rowHtml = `<tr>
+                    <td><span name="c1"></span></td>
+                    <td><span name="c2"></span></td>
+                </tr>`;
+        $('.append-one > button').click(function (params) {
+            util2.addRow();
+        })
+    </script>
+    <style>
+        #table2>tbody>tr>td.z-op-td>a {
+            display: none;
+        }
+    </style>
+</body>
+
+</html>
